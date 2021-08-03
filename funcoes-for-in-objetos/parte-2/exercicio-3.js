@@ -14,7 +14,3 @@ function acharMenorIndice(array) {
 }
 console.log(acharMenorIndice([2, 4, 6, 7, 10, 0, -3]));
 console.log(acharMenorIndice([4, 3, 2, 5, 1, 7, -1, 2, -2, 4, -9, 20]));
-
-/*4 - Crie uma função que receba um array de nomes e retorne o nome com a maior quantidade de caracteres.
-Array de teste: ['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana']; .
-Valor esperado no retorno da função: Fernanda . */
