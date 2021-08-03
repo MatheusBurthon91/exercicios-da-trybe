@@ -11,10 +11,10 @@ function verificaFimDePalavra(palavra, fimDePalavra) {
   let ultimaPalavra = fimDePalavra.split('').reverse().join('');
 
   for(let index = 0; index < primeiraPalavra.length; index +=1) {
-      if(primeiraPalavra[index] !== ultimaPalavra[index]) {
-          return false;
+      if(primeiraPalavra[index] === ultimaPalavra[index]) {
+        return true;
       } else {
-          return true;
+        return false;
       }
   }
 }
