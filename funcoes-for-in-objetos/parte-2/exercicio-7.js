@@ -20,3 +20,13 @@ function verificaFimDePalavra(palavra, fimDePalavra) {
 }
 console.log(verificaFimDePalavra('trybe', 'be'));
 console.log(verificaFimDePalavra('joaofernando', 'fernan'));
+
+let string1 = 'trybe';
+let string2 = 'be';
+console.log(string1.endsWith(string2));
+
+function finalPalavra(palavra, fimDePalavra) {
+  return palavra.endsWith(fimDePalavra);
+}
+console.log(finalPalavra('trybe', 'be'));
+console.log(finalPalavra('joaofernando', 'fernan'));
