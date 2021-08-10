@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Testes de funções do DOM</title>
+  <style>
+  h1 {
+      color: red; /* estilo do elemento => lembrando que podemos colocar um arquivo externo na pagina 
+      com na tag style com um atributo link*/
+  }
+
+  </style>
+</head>
+<body>
+
+  <h1>Olá!!</h1>
+  <h2>Respiração do sol</h2>
+  <p>Respiração da água</p>
+  <p>Respiração do trovão</p>
+  <p>Respiração da besta</p>
+  <section class="Executores-de-onis">
+  <div id="lenda"> Yoriichi Tsugikuni</div>
+  <div class="personagens matadores" id="protagonista">Tanjiro Kamado</div>
+  <div class="personagens matadores">Zennitsu Agatsuma</div>
+  <div class="personagens matadores">Inosuke Hashibira</div>
+  <div class="personagens matadores">Kanao Tsuyuri</div>
+  <div class="personagens matadores pilares">Shinobu Kochou</div>
+  <div class="personagens matadores pilares">Giyuu Tomioka</div>
+  <div class="personagens matadores pilares">KyooJuroo Rengoku</div>
+  </section>
+
+  <section class="onis">
+    <div class="personagens" id="alfa">Kibutsuji Muzan</div>
+    <div class="personagens lua-superior">Michikatsu Tsugikuni</div>
+    <div class="personagens lua-superior">Douma</div>
+    <div class="personagens lua-superior">Akaza</div>
+    <div class="personagens oni-bom">Tamayo-san</div>
+    <div class="personagens oni-bom">Yushiro</div>
+    <div class="personagens oni-bom irma-do-protagonista">Nezuko Kamado</div>
+  </section>
+  <span id="teste">O cesto de gávea dos navios é chamado de 'casa do c*r*lh*' pelos portugueses</span>
+    <!--nesse bloco iremos verificar como funciona o DOM, que é um medio de comunicação do javascript com
+  o html, ou seja usamos a linguagem de marcação com o html para fazer as marcações, colocar as
+principais tags, a linguagem de estilização para complementar e deixar o designer da pagina apresenta-
+vel, mas só isso deixa a pagina estatica então vem o javascipt para dar as funções e dinamismo paras as
+paginas da web. O DOM faz essa interpretação com o html e o javascript-->
+
+<!--a estrutura do DOM tem esses elementos, para ver a estrutura vá no course bloco 5.1 e o seus com-
+ponentes são esses, toda essa estrutura é interpretada pelo box-->
+
+<!--
+Window : Representa uma janela que contém um elemento DOM, sendo possível acessar o documento que a 
+janela contém através de Window ;
+location : Representa a localização do objeto a qual ele está associado, isso é, o documento atual;
+document : Representa qualquer página da web carregada no navegador e serve como um ponto de entrada 
+para o conteúdo na página da web, sendo assim o document contém todos os documentos HTML ;
+history : Permite a manipulação do histórico da sessão do navegador, ou seja, as páginas visitadas na 
+guia ou quadro em que a página atual está carregada;
+element : É a classe base mais geral da qual todos os objetos em um Document herdam, isso é, 
+são todas as tags que estão em arquivos HTML e se transformam em elementos da árvore DOM ;
+text : Texto que vai entre os elementos, é todo o conteúdo das tags;
+atribute : São todos os atributos que um nó específico possui, como uma class ou id-->
+<!--é possivel acessar os elemetos do html e alterar textos, estilos com o Dom e isso veremos logo abaixo 
+com ele funciona-->
+
+
+
+  <script>
+    console.log('hello world'); // uso da tag script
+    /*lembrando que podemos colocar um arquivo externo com o atributo src dentro da tag script*/
+    let testando = document.getElementById('teste');
+    testando.innerHTML = 'lets bora'; // podemos manipular o elemento trocando do html textos pelo js
+    // com a propriedade innerHTML ou com innerText.
+    testando.innerText = 'Vamos arrebentar com esse bloco de DOM, aproveitando essa ferramenta maravilhosa';
+    // aqui capturamos o elementos html pelo id e colocamos em uma variavel
+    testando.style.backgroundColor = 'blue';
+    testando.style.color = 'white';
+    // podemos alterar o estilo dos elementos html também pelo DOM com a propriedade style e o nome da propriedade
+    // outro exemplo
+    testando.style.height = '50px';
+    testando.style.textAlign = 'center';
+    // esses são as primeiras propriedades.
+
+    // para os testes eu não vou mudar o conteudo deles, mas vou adicionar pequenos estilos no css;
+
+    const personagens = document.getElementsByClassName('personagens');
+    for(let personagem = 0; personagem < personagens.length; personagem += 1) {
+      personagens[personagem].style.color = 'darkblue';
+      personagens[personagem].style.backgroundColor = 'green';
+      personagens[personagem].style.border = '1px solid yellow';
+      personagens[personagem].style.width = '150px';
+    }
+
+    const respiracoes = document.getElementsByTagName('p');
+    for(let respiracao = 0; respiracao < respiracoes.length; respiracao += 1) {
+      respiracoes[respiracao].style.color = 'teal';
+      respiracoes[respiracao].style.border = '1px solid red';
+      respiracoes[respiracao].style.height = '120px';
+      respiracoes[respiracao].style.width = '190px';
+    }
+
+    const pilares = document.getElementsByClassName('pilares');
+    for(let pilar = 0; pilar < pilares.length; pilar += 1) {
+      pilares[pilar].style.color = 'orchid';
+      pilares[pilar].style.backgroundColor = 'gold';
+      pilares[pilar].style.border = '1px solid darkred';
+      pilares[pilar].textAlign = 'center';
+    }
+    /*agora vamos conhecer novas formas de capturar elementos html com novas proriedades do Dom que são
+    o getElementsByClassName e getElementsByTagName que ao resgatar resgata uma lista de elementos html
+    parecido com o array*/
+    // uma dica quando para quando usar o getElementsByTagName é pra quando quiser interagir com o proprios 
+    // elementos html
+
+   /* agora veremos mais dois exemplos de seletores, mas nesse caso eles serão mais amplos e facilitarão
+   o processo quando quisermos trabalhar com o DOM => os seletores são querySelector e o querySelectorAll
+   eles são mais eficientes pois funcionam com tudo e aina trabalham com os elementos do CSS*/
+
+   // vou trabalhar agora com o document.querySelector e modificar a primeira div que eu encontrar e o
+   // proximo vou modificar com o id
+
+   const lenda = document.querySelector('div');
+   lenda.style.color = 'red';
+   lenda.style.backgroundColor = 'black';
+   lenda.style.border = '1px solid blue';
+   lenda.style.textAlign = 'center';
+
+   const vilaoAlfa = document.querySelector('#alfa');
+   vilaoAlfa.style.color = 'black';
+   vilaoAlfa.style.backgroundColor = 'red';
+   vilaoAlfa.style.border = '1px solid yellow';
+   vilaoAlfa.style.textAlign = 'center';
+
+   /*quando utilizarmos o querySelector é possivel fazer alterações mais rapidas do que informar o 
+   que é cada coisa, mas no caso ele trabalha com o primeiro elemento que ele achar, o proximo exemplo
+   será com querySelectorAll que será possivel mexer com varios elementos ao mesmo tempo e ao fazer
+   isso estaremos mexendo com um nodeList que tem propriedades parecidas com um array*/
+
+   const onisSuperiores = document.querySelectorAll('.lua-superior');
+   for(let oni = 0; oni < onisSuperiores.length; oni += 1) {
+     onisSuperiores[oni].style.color = 'red';
+     onisSuperiores[oni].style.border = '1px solid brown';
+     onisSuperiores[oni].style.backgroundColor = 'purple';
+     onisSuperiores[oni].style.textAlign = 'center';
+   }
+
+   const onisBons = document.querySelectorAll('.oni-bom');
+   for(let oniBom = 0; oniBom < onisBons.length; oniBom += 1) {
+     onisBons[oniBom].style.color = 'blue';
+     onisBons[oniBom].style.border = '1px solid black';
+     onisBons[oniBom].style.backgroundColor = 'rebeccaPurple';
+     onisBons[oniBom].style.textAlign = 'center';
+   }
+
+  </script>
+</body>
+</html>
