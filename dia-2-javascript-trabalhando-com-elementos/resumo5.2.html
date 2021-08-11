@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumo do bloco 5.2</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: cadetblue;
+      color: rgb(207, 90, 23);
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+  <h1>hoje vamos agregar os elementos HTML com o javascript</h1>
+  </header>
+  <!--Os elementos html são compostos por um 'agregados de nós', apartir dai podemos entender como fun-
+  ciona a estrutura do DOM, os componentes estão logo abaixo-->
+  <section class="animes-shounens">
+    <h2>Animes Shounens</h2>
+    <ul class="lista-de-animes-shounens"></ul>
+  </section>
+
+  <section class="animes-seinens">
+    <h2>Animes Seinen</h2>
+    <ul>
+      <li class="sei">Ghost Shell</li>
+      <li class="sei">Viland Saga</li>
+      <li class="sei">Sword Art Onlie</li>
+      <li class="sei">Guilty Crown</li>
+      <li class="sei">Charllote</li>
+    </ul>
+  </section>
+
+  <section class="melhores-finais-animes">
+    <h2>Melhores finais de animes</h2>
+    <ol>
+      <li class="best">Code Geass</li>
+      <li class="best">FullMetal Alchemist Brotherhood</li>
+      <li class="best">Dragon Ball</li>
+    </ol>
+  </section>
+  <!-- Essas propriedades servem para acessar os elementos html, servem como propriedade de leitura
+parentNode : retorna o nó pai.
+parentElement : retorna o elemento pai.
+childNodes : retorna um NodeList com todos os nós filhos.
+children : retorna um HTMLCollection com todos os elementos filhos.
+firstChild : retorna o primeiro nó filho.
+firstElementChild : retorna o primeiro elemento filho.
+lastChild : retorna o último nó filho.
+lastElementChild : retorna o último elemento filho.
+nextSibling : retorna o próximo nó.
+nextElementSibling : retorna o próximo elemento.
+previousSibling : retorna o nó anterior.
+previousElementSibling : retorna o elemento anterior.
+-->
+  
+  
+  <script>
+    console.log('hello world');
+
+    let animesShounens = document.querySelector('.lista-de-animes-shounens');
+
+    let shounenAnimes = [
+    'Dragon Ball',
+    'Bleach',
+    'One Piece',
+    'Boku no Hero Academia',
+    'Kimetsu no Yaiba'
+    ];
+
+    for(let index = 0; index < shounenAnimes.length; index += 1) {
+      let listaAnimesShounens = shounenAnimes[index];
+      let criarLista = document.createElement('li');
+      criarLista.innerText = listaAnimesShounens;
+      criarLista.classList = 'sh';
+      animesShounens.appendChild(criarLista);
+    }
+
+    // eu ainda não vi one piece todo e ainda não vi o mangá então vou remove-lo
+
+    // vou recuperar os elementos que contem Li
+    let listaDosAnimes = document.querySelectorAll('.sh');
+    for(let index = 0; index < listaDosAnimes.length; index +=1) {
+      let osAnimes = listaDosAnimes[index];
+      if(osAnimes.innerText.includes('One Piece')) {
+        animesShounens.removeChild(osAnimes); // animesShounes é o elemento pai da lista.
+      }
+    }
+
+
+  </script>
+</body>
+</html>
