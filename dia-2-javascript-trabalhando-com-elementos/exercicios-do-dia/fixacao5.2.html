@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fixação propriedades dos elementos html</title>
+</head>
+<body>
+  <main id="paiDoPai">
+    <section id="pai">
+      <section id="primeiroFilho"></section>
+      <section id="elementoOndeVoceEsta">
+        <section id="primeiroFilhoDoFilho"></section>
+        <section id="segundoEUltimoFilhoDoFilho"></section>
+      </section>
+      Atenção!
+      <section id="terceiroFilho"></section>
+      <section id="quartoEUltimoFilho"></section>
+    </section>
+  </main>
+  <script>
+    console.log('hello world');
+// Acesse o elemento elementoOndeVoceEsta .
+let elementoPresente = document.querySelector('#elementoOndeVoceEsta');
+// Acesse pai a partir de elementoOndeVoceEsta e adicione uma color a ele.
+elementoPresente.parentNode.style.backgroundColor = 'blue';
+// Acesse o primeiroFilhoDoFilho e adicione um texto a ele. Você se lembra dos vídeos da aula anterior, 
+// como fazer isso?
+let primeiroFilhoDoFilho = document.querySelector('#primeiroFilhoDoFilho');
+primeiroFilhoDoFilho.innerHTML = 'Sejam todos bem vindos a parte 2 do DOM veremos aprofundamos mais no ensino dessa maravilha!'
+// Acesse o primeiroFilho a partir de pai .
+let paiParaFilho = document.querySelector('#pai');
+console.log(paiParaFilho.firstElementChild);
+// Agora acesse o primeiroFilho a partir de elementoOndeVoceEsta .
+let elementoPresenteParaPrimogenito = document.querySelector('#elementoOndeVoceEsta');
+console.log(elementoPresenteParaPrimogenito.previousElementSibling);
+// Agora acesse o texto Atenção! a partir de elementoOndeVoceEsta .
+let elementoPresenteParaAtencao = document.querySelector('#elementoOndeVoceEsta');
+console.log(elementoPresenteParaAtencao.parentNode.parentNode.innerText);
+// Agora acesse o terceiroFilho a partir de elementoOndeVoceEsta .
+let elementoAtualParaTerceriFilho = document.querySelector('#elementoOndeVoceEsta');
+elementoAtualParaTerceriFilho.nextElementSibling
+// Agora acesse o terceiroFilho a partir de pai .
+let paiParaTerceiroFilho = document.querySelector('#pai');
+console.log(paiParaTerceiroFilho.childNodes[5]);
+let terceiroFilho = paiParaTerceiroFilho.childNodes[5];
+
+// Crie um irmão para elementoOndeVoceEsta .
+let paizao = document.querySelector('#pai');
+let criarPIrmãoDoElementoOndeVoceEsta = document.createElement('p');
+criarPIrmãoDoElementoOndeVoceEsta.id = 'elementoIrmãoDeOndeVoceEsta';
+criarPIrmãoDoElementoOndeVoceEsta.innerText = 'Elemento novo criado, esse é o irmão de onde você está!';
+paizao.appendChild(criarPIrmãoDoElementoOndeVoceEsta);
+
+// Crie um filho para elementoOndeVoceEsta .
+let filhoDoPresente = document.createElement('p');
+filhoDoPresente.innerText = 'Olá sou o filho do presente!'
+elementoPresente.appendChild(filhoDoPresente);
+// Crie um filho para primeiroFilhoDoFilho .
+let esseEhOfilhoDoPrimeiroFilho = document.createElement('p');
+esseEhOfilhoDoPrimeiroFilho.innerText = 'sou o filho e tenho orgulho do paizão que é o primeiro filho do filho';
+esseEhOfilhoDoPrimeiroFilho.style.color = 'white';
+primeiroFilhoDoFilho.appendChild(esseEhOfilhoDoPrimeiroFilho);
+// A partir desse filho criado, acesse terceiroFilho(ver esse topico.)
+let vouParaOTerceiroFilho = esseEhOfilhoDoPrimeiroFilho.parentElement.parentElement.nextElementSibling;
+console.log(vouParaOTerceiroFilho);
+// Remova todos os elementos filhos de paiDoPai exceto pai , elementoOndeVoceEsta e primeiroFilhoDoFilho .
+primeiroFilhoDoFilho.removeChild(esseEhOfilhoDoPrimeiroFilho);
+paizao.removeChild(terceiroFilho);
+let segundoFilho = document.querySelector('#segundoEUltimoFilhoDoFilho');
+elementoPresente.removeChild(segundoFilho);
+let firstSonOfSon = document.querySelector('#primeiroFilhoDoFilho');
+elementoPresente.removeChild(firstSonOfSon);
+let quartoFilho = document.querySelector('#quartoEUltimoFilho');
+let elementoIrmaoDeOndeVoceEsta = document.querySelector('#elementoIrmãoDeOndeVoceEsta');
+paiParaFilho.removeChild(quartoFilho);
+paiParaFilho.removeChild(elementoIrmaoDeOndeVoceEsta);
+  </script>
+</body>
+</html>
