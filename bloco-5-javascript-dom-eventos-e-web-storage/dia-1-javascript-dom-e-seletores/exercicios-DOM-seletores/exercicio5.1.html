@@ -59,34 +59,36 @@
          mudarParagrafo.innerHTML = texto;
          return mudarParagrafo;
        }
-       mudarTexto('Me vejo trabalhando como desenvolvedor de software, trabalhando de forma satisfatória e amando o que estou fazendo. Na vida pessoa, eu me vejo feliz com minha familia');
+       mudarTexto('Me vejo trabalhando como desenvolvedor de software, trabalhando de forma satisfatória e amando o que estou fazendo. Na vida pessoal, eu me vejo feliz com minha familia');
 
        function mudarCorDeFundo(cor) {
         let colorir = document.getElementsByClassName('main-content')[0];
         colorir.style.backgroundColor = cor;
-        return colorir;
+        
        }
        mudarCorDeFundo(`rgb(76,164,109)`);
 
        function mudarParaBranco(branco) {
          let planoDeFundo = document.getElementsByClassName('center-content')[0];
          planoDeFundo.style.backgroundColor = branco;
-         return planoDeFundo;
+         
        }
        mudarParaBranco('white');
 
        function corrigirTexto() {
          let titulo = document.getElementsByTagName('h1')[0];
          titulo.innerHTML = 'Exercício 5.1 - JavaScript';
-         return titulo;
+         
        }
        corrigirTexto();
 
        function colocarLetrasMaiusculas() {
-         let maiusculos = document.getElementsByTagName('p')[0];
-          maiusculos.innerHTML = maiusculos.innerHTML.toUpperCase();        
-        return maiusculos;
-       }
+         let maiusculos = document.getElementsByTagName('p');
+         for(let index = 0; index < maiusculos.length; index +=1) {
+          maiusculos[index].innerHTML = maiusculos[index].innerHTML.toUpperCase();        
+          }
+      
+      }
        colocarLetrasMaiusculas();
 
        function imprimirParagrafosNoConsole() {
@@ -94,7 +96,7 @@
          for(let index = 0; index < paragrafos.length; index +=1) {
            console.log(paragrafos[index].innerHTML);
          }
-         return paragrafos;
+         
        }
        imprimirParagrafosNoConsole();
     </script>
