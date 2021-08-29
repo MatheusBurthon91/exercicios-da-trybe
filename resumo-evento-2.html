@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agora vermos eventos mais completos e completos</title>
+  <style>
+    .color1 {
+      background-color: orange;
+      width: 40px;
+      height: 40px;
+      border: 1px solid black;
+      display: inline-block;
+    }
+
+    .color2 {
+      background-color: blue;
+      width: 40px;
+      height: 40px;
+      border: 1px solid black;
+      display: inline-block;
+    }
+
+    .color3 {
+      background-color: red;
+      width: 40px;
+      height: 40px;
+      border: 1px solid black;
+      display: inline-block;
+    }
+
+  </style>
+</head>
+<body>
+  <section id="pai">
+    <h1>As cores estão aqui coloque elas na lista dos animes</h1>
+
+    <div class="color1"></div>
+    <div class="color2"></div>
+    <div class="color3"></div>
+  </section>
+
+  <section id="irmao">
+    <ul id="lista-desordenada"></ul>
+  </section>
+  <!--
+    Como vemos no primeiro exemplo colocamos um evento na propria tag HTML, e isso é considerado uma má prati
+    ca e não deixa o codigo tão dinâmico, por isso usa-se o escutador de eventos chamado addEventListener que
+    vai servir para executar as tarefas, ele vai determinar os cliques, mouse em cima, mouse saiu, duplo clique
+    entre outros e para isso vamos usar os elementos HTML e manipular eles como queremos. e para isso podemos
+    botar a estrutra no script e veremos a seguir.
+  -->
+
+  <script>
+    console.log('hello world');
+    // a escutador de eventos funciona da seguinte maneira elemento.addEventListner('click' function);
+    
+    window.onload = alert('Seja bem vindo!, venha ver eventos comigo!!');
+    /*podemos colocar o algoritmo dentro do escutador de eventos e podemos fazer a função por fora e depois
+    podemos passar ele como o parametro da função addEventListner*/
+    
+    // vamos criar pequenas estruturas de texto
+    let section = document.querySelector('#pai');
+
+    // criar um titulo
+
+    function criarTitulo() {
+      let h1 = document.createElement('h1');
+      h1.innerText = 'Vamos brincar com eventos e animes ao mesmo Tempo?';
+      h1.id = 'titulo'
+      h1.style.color = 'green';
+      section.appendChild(h1);
+    }
+
+    function criarBotaoInteretivo() {
+      let botao = document.createElement('button');
+      botao.classList = 'evento';
+      botao.innerText = 'clica aqui e veja a pergunta!';
+      section.appendChild(botao);
+    }
+    criarBotaoInteretivo();
+
+    let resgateBotao = document.querySelector('.evento');
+    resgateBotao.addEventListener('click', criarTitulo);
+
+    let arrayDeFilmes = ['Koe no Katachi', 'Kimi no na wa', 'Tenki no Ko'];
+
+    let casaDaLista = document.querySelector('#lista-desordenada');
+    function elementosDaLista() {
+      for(let index = 0; index < arrayDeFilmes.length; index +=1) {
+        let osFilmes = arrayDeFilmes[index];
+        let criarLista = document.createElement('li');
+        criarLista.innerHTML = osFilmes;
+        criarLista.classList = 'kyoAni';
+        casaDaLista.appendChild(criarLista);
+      }
+    }
+    elementosDaLista();
+
+    // agora vamos resgagar as divs e colocar uma classe nela.
+
+    let color1 = document.querySelector('.color1');
+    color1.classList.add('selecionado');
+    color1.addEventListener('click', trocarDiv);
+    let color2 = document.querySelector('.color2');
+    color2.addEventListener('click', trocarDiv);
+    let color3 = document.querySelector('.color3');
+    color3.addEventListener('click', trocarDiv)
+
+    // agora vou colocar uma classe um evento nela para trocar classe em cada clique
+
+    function trocarDiv(event) {
+      let selecionado = document.querySelector('.selecionado');
+      selecionado.classList.remove('selecionado');
+      event.target.classList.add('selecionado');
+    }
+
+    function clicarNaLista() {
+      let lista = document.querySelectorAll('.kyoAni');
+      for(let index = 0; index < lista.length; index +=1) {
+        itemLista = lista[index];
+        itemLista.addEventListener('click', mudarCor);
+      }
+    }
+    clicarNaLista();
+    
+
+    function mudarCor(event) {
+      let selecionado = document.querySelector('.selecionado');
+      let cor = window.getComputedStyle(selecionado, null).getPropertyValue("background-color");
+      event.target.style.color = cor;
+    }
+
+    /* aqui foram usadas diversas funções para retratar eventos e para isso foram usadas diversar funções e parametros
+    como o famoso event target que serve para mudar o alvo em que o evento acontece, o event target é uma propriedade 
+    bastante util e poderosa, pois ele basicamente faz uma referencia ao objeto que enviou o evento */
+
+
+  </script>
+</body>
+</html>
