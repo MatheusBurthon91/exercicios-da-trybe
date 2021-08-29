@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Inscrição</title>
+  <style>
+    body {
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Coloque seus dados aqui</h1>
+  <form action="">
+    <fieldset>
+    <label for="nome">Nome:
+      <input type="text" id="nome">
+    </label>
+    <label for="idade">Idade:
+      <input type="number" id="idade">
+    </label>
+    <label for="data">Data de Envio:
+      <input type="date" id="data">
+    </label>
+    </fieldset>
+  </form>
+  <button id="salvar">Salvar informações</button>
+  <script>
+    // resgatar os elementos de trabalho
+
+    let nome = document.querySelector('#nome');
+    let idade = document.querySelector('#idade');
+    let data = document.querySelector('#data');
+    let salvarInfo = document.querySelector('#salvar');
+
+
+    // coloca o evento em um botão para testar
+
+    function mandarDados() {
+      localStorage.setItem('nome', nome.value);
+      localStorage.setItem('idade', idade.value);
+      localStorage.setItem('data', data.value);
+    }
+    salvarInfo.addEventListener('click', mandarDados); // ao executar essa função as propriedades vão para o localStorage
+    console.log('hello world');
+
+    nome.value = localStorage.nome; // para ficar pega o valor delas e iguala ao que tem no objeto para emular na tela 
+    idade.value = localStorage.idade;
+    data.value = localStorage.data;
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Dê uma olhada no seu console para checar os exemplos sendo impressos.<br />;)</h1>
+  <script>
+    /* o localStorage é uma maneira que existe de armazenar os dados e como foi falado no assunto se você fechar o navegador
+    ele não será apagado e não tem data para sua exclusão a não ser que a pessoa programadora apague ou o navegador de inter
+    net deixe de existir*/
+  console.log(localStorage.length) // não possui nada salvo, então o retorno é o valor: 0
+  /* para enviar os dados para o local storage exite uma função que faz isso que é o localstorage.setItem() local
+  Storage é pra onde ele vai mandar os dados e setItem é que vai o envio desse dado. como parametro dessa função
+  é passado no como ojeto que vai ter sua de chave e propriedade.*/
+localStorage.setItem("firstname", "Adam") //salva uma entrada com a key = "firstname" e value = "Adam"
+localStorage.setItem("lastname", "Smith") //salva uma entrada com a key = "lastname" e value = "Smith"
+console.log(localStorage.getItem("lastname")) // retorna o valor "Smith"
+console.log(localStorage.length) // possui duas entradas, então o retorno é o valor: 2
+localStorage.removeItem("lastname") // remove a entrada referente a key = "lastname"
+console.log(localStorage.length) // possui uma entrada, então o retorno é o valor: 1
+localStorage.clear() // limpa todas as entradas salvas em localStorage
+console.log(localStorage.length) // não possui nada salvo, então o retorno é o valor: 0
+
+/*sessionStorage - salva os dados apenas para a sessão atual. Os dados são removidos assim que a pessoa fecha a aba ( tab ) 
+ou o browser .*/
+
+console.log(sessionStorage.length) // não possui nada salvo, então o retorno é o valor: 0
+sessionStorage.setItem("firstname", "Adam") //salva uma entrada com a key = "firstname" e value = "Adam"
+sessionStorage.setItem("lastname", "Smith") //salva uma entrada com a key = "lastname" e value = "Smith"
+/*no caso do sessionStorage muda só o a parte do lugar, mas para mandar e remover itens funciona da mesma maneira.*/
+console.log(sessionStorage.getItem("lastname")) // retorna o valor "Smith"
+console.log(sessionStorage.length) // possui duas entradas, então o retorno é o valor: 2
+sessionStorage.removeItem("lastname") // remove a entrada referente a key = "lastname"
+console.log(sessionStorage.length) // possui uma entrada, então o retorno é o valor: 1
+sessionStorage.clear() // limpa todas as entradas salvas em sessionStorage
+console.log(sessionStorage.length) // não possui nada salvo, então o retorno é o valor: 0
+  </script>
+</body>
+</html>
