@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos básicos</title>
+</head>
+<body>
+  <header>Vamos aprender um pouco de eventos, nesse caso no proprio HTML</header>
+
+  <section id="testes">
+
+    <h1>Quer saber a tradução do anime: Kono Subarashii Sekai ni Shukufuku o!</h1>
+    <button onclick="clickAqui();">Clica aqui para saber!</button>
+  </section>
+
+  <script>
+    console.log('hello world');
+
+    let section = document.querySelector('#testes');
+
+    function criarParagrafo() {
+      let p = document.createElement('p');
+      p.innerText = 'As bençãos de Deus nesse mundo Maravilhoso!';
+      section.appendChild(p);
+    }
+
+    window.onload = alertaDeCarregamento;
+    function alertaDeCarregamento() {
+      alert('pagina funfada!!!!');
+    }
+    // testar um evento de click
+    function clickAqui() {
+      criarParagrafo();
+    }
+  </script>
+</body>
+</html>
