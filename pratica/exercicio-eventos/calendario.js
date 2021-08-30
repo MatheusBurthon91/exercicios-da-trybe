@@ -197,6 +197,7 @@ pegarBotaoCompromisso.addEventListener('click', addCompromisso);
 //   }
 // }
 
+
 const pegarBotaoRemover = document.querySelector('#btn-remove');
 pegarBotaoRemover.addEventListener('click', () => {
   const listaDesordenada = document.querySelector('.task-list');
@@ -206,3 +207,19 @@ pegarBotaoRemover.addEventListener('click', () => {
     listaDesordenada.removeChild(aTarefa);
   }
 });
+
+// resgate o botão para savar os compromissos
+
+let compromisso = document.querySelector('.task-list');
+function mandarLocalStorage() {
+    localStorage.setItem('tarefas', compromisso.innerText);
+  }
+
+const pegarBotaoSalvar = document.querySelector('#btn-save');
+pegarBotaoSalvar.addEventListener('click', mandarLocalStorage);
+
+
+function mostrarTarefa() {
+  compromisso.innerText = localStorage.getItem('tarefas');
+}
+window.onload = mostrarTarefa();
