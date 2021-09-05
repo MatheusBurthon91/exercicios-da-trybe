@@ -212,7 +212,7 @@ pegarBotaoRemover.addEventListener('click', () => {
 
 let compromisso = document.querySelector('.task-list');
 function mandarLocalStorage() {
-    localStorage.setItem('tarefas', compromisso.innerText);
+    localStorage.setItem('tarefas', compromisso.innerHTML);
   }
 
 const pegarBotaoSalvar = document.querySelector('#btn-save');
@@ -220,6 +220,6 @@ pegarBotaoSalvar.addEventListener('click', mandarLocalStorage);
 
 
 function mostrarTarefa() {
-  compromisso.innerText = localStorage.getItem('tarefas');
+  compromisso.innerHTML = localStorage.getItem('tarefas');
 }
 window.onload = mostrarTarefa();
